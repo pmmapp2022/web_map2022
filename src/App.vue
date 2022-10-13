@@ -3,18 +3,14 @@
 
 
   <div id="app">
-    <div v-if="!isMobile()">
         <Map/>
     </div>
-    <div v-else>
-    This app does not work on Mobile devices, try switching to a desktop device.
-    </div>
 
 
 
 
 
-  </div>
+
 </template>
 
 <script>
@@ -72,13 +68,13 @@ export default {
         margin-top: 0;
     }
     #app {
-
-
+        width: 100%;
+        height: 100%;
         font-family: Roboto, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-        color:rgb(7, 7, 7);
+        color:rgb(255, 255, 255);
     }
 
 

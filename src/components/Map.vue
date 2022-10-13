@@ -1,6 +1,7 @@
 <template>
 
 
+
 <div style="display: flex; justify-content:space-between; align-items: center; ">
 
 <a href="https://pmm.org.pl/">
@@ -63,7 +64,6 @@ Ask about the map
 
 
                 <h3 class="header-orange" > DATA LAYERS </h3>
-
 
 
                         <div v-for="layer in layer_groups" :key="layer" class="overlay-text-feed">
@@ -336,7 +336,6 @@ const layer_items = ref([
   {
     id: 0,
     name: 'Open_Street_Map',
-    img: 'https://github.com//Syverpet/prototyping_data_april_2022/blob/main/icons/Health_Equipment_and_Supplies.png?raw=true',
     visible: false,
     inlegend: false,
     tick_box: false,
@@ -348,7 +347,6 @@ const layer_items = ref([
   {
     id: 1,
     name: 'Google_Satellite',
-    img: 'https://github.com//Syverpet/prototyping_data_april_2022/blob/main/icons/Health_Equipment_and_Supplies.png?raw=true',
     visible: false,
     inlegend: false,
     tick_box: false,
@@ -362,7 +360,6 @@ const layer_items = ref([
   {
     id: 2,
     name: 'Dark_Basemap',
-    img: 'https://github.com//Syverpet/prototyping_data_april_2022/blob/main/icons/Health Facilities.png?raw=true',
     visible: false,
     inlegend: false,
     tick_box: false,
@@ -2147,35 +2144,56 @@ stroke-width: 3px;
     grid-template-areas:
     'header header'
     'left right';
+    max-height: 100vh;
+    max-width: 100vw;
+    position:fixed;
 }
 
 .left {
     grid-area: left;
-    width: 25vw;
-    height: 85vh;
+    width: 12vw;
+    height: 95vh;
     background: rgb(23, 9, 46);
     border-radius: 0.5vh;
-    overflow:auto;
-    max-width: 330px;
+    transition: all 200ms ease-in-out;
+    z-index: 9;
+    position:fixed;
+    min-width: 70px;
 }
+
+.left:hover {
+  width: 18vw;
+  overflow: hidden;
+  box-shadow: 1vw 1vw 1vw 1vw rgb(2 2 2 / 20%);
+}
+
+
 
 .right {
     grid-area: right;
-    width: 82vw;
-    height: 85vh;
-    border: 0px solid rgb(0, 0, 0);
+    width: 87vw;
+    height: 95vh;
     border-radius: 1.5vh;
+    left:12.5vw;
+    position:fixed;
+    z-index: 0;
 }
 
 .toc {
     margin-left: 2vh;
     font-family: Silka, sans-serif;
 }
+
+.ol-control {
+  background: rgba(228, 227, 227, 0.575);
+  color: black;
+
+}
 .ol-control button {
   height: 1.5vh;
   max-height: 70vh;
   width: 1.5vh;
- font-size: clamp(8px, 1vw, 12px)
+ font-size: clamp(10px, 0.7vw, 0.7vw)
 }
 
 .ol-zoom-in button {
@@ -2194,7 +2212,7 @@ stroke-width: 3px;
 display: block;
 min-height: 5vh;
 max-height: 70vh;
-width: clamp(10px, 20vh, 20vh);
+width: clamp(80px, 11vw, 11vw);
 overflow:auto;
 overflow-y: scroll;
 overflow-x: hidden;
@@ -2275,8 +2293,6 @@ top: 9px;
     width: 3vw;
     height: 5vh;
     border: 0px solid rgb(0, 0, 0);
-
-
 }
 
 .legend-right {
@@ -2308,7 +2324,8 @@ top: 9px;
   font-weight: bold;
   position: relative;
   padding: 0.5vw;
-  padding-right: 3vw;
+  padding-right: 1.5vw;
+  margin-right: 1.5vw;
   top: 0.2rem;
 }
 
@@ -2406,7 +2423,7 @@ margin-top: 1vh;
 
 .home-header {
         color: rgb(0, 0, 0);
-        font-size: clamp(20px, 2vw, 2vw);
+        font-size: clamp(20px, 2.5vw, 2.5vw);
         letter-spacing: normal;
         font-family: Silka, sans-serif;
         font-weight: 900;
@@ -2451,10 +2468,32 @@ transition: all 200ms ease-in-out;
   margin-bottom: 2vh;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
         .button {
           display: none;
         }
+        .home-header {
+          margin-right: 20vw;
+        }
+}
+
+@media (max-width: 500px) {
+        .home-header {
+          display: none;
+        }
+
+        .overlay-legend {
+          left: 13vw
+        }
+        .logo {
+          height: 3.5vh;
+        }
+        .left:hover {
+          width: 28vw;
+          overflow: hidden;
+          box-shadow: 1vw 1vw 1vw rgb(2 2 2 / 20%);
+        }
+
     }
 
 
