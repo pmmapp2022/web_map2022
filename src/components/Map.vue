@@ -2322,6 +2322,7 @@ top: 9px;
   font-size: clamp(5px, 0.7vw, 11px);
   font-family: Silka, sans-serif;
   font-weight: bold;
+  line-height: 1;
   position: relative;
   padding: 0.5vw;
   padding-right: 1.5vw;
