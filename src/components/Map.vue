@@ -228,7 +228,7 @@ import {Circle as CircleStyle, Fill, Stroke} from 'ol/style';
 
 
 
-//import questionIcon from "@/assets/questionIcon.png";
+//import questionIcon from "@/Offices and Static Assets/questionIcon.png";
 
 
 
@@ -316,19 +316,21 @@ const selected = ref(null)
 const layer_groups = ref([
     {name: 'Base layer',
     visible: true},
-    {name: 'Health',
+    {name: 'Hospital Support and Shelter',
     visible: true},
-    {name: 'Food Security',
+    {name: 'Medical Care and Nutrition',
     visible: true},
-    {name: 'WASH',
+    {name: 'Education and Training',
     visible: true},
-    {name: 'Assets',
+    {name: 'Offices and Static Assets',
+    visible: true},
+    {name: 'VASCO TEAM',
     visible: true},
 ])
 
 //const group_visibibility = ref({
-//    Health: true,
-//    Food_Security: true,
+//    Hospital Support and Shelter: true,
+//    Offices and Static Assets: true,
 //})
 
 
@@ -368,8 +370,8 @@ const layer_items = ref([
       url: "http://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ",
       crossOrigin: undefined,
       view: new View({ projection: 'EPSG:4326', // Projection coordinate system
-        center: [113.1206, 23.034996], // The center of the map
-        zoom: 1, // Map zoom level （ The default level when opening a page,
+        center: [30.1206, 23.034996], // The center of the map
+        zoom: 2, // Map zoom level （ The default level when opening a page,
       }),
     }),
     layer_group: 'base layer',
@@ -377,297 +379,237 @@ const layer_items = ref([
 
 
 
-// FOOD SECURITY
+// Medical Care and Nutrition
 
     {
     id: 3,
-    name: 'Cash Assistance',
-    img: 'https://github.com//Syverpet/prototyping_data_april_2022/blob/main/icons/orthopedic care.png?raw=true',
-    visible: false,
+    name: 'Women Health',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/women-health.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
 
   {
     id: 4,
-    name: 'Fishing Equipment Distribution',
-    img: 'https://github.com//Syverpet/prototyping_data_april_2022/blob/main/icons/Icon_test_40px.png?raw=true',
+    name: 'Specialized care',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/specialized-care.png?raw=true',
     visible: true,
     inlegend: true,
     tick_box: true,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
 
   {
     id: 5,
-    name: 'Food Distribution',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Food%20Security/3.food.png?raw=true',
-    visible: false,
+    name: 'Dentistry',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/dentistry.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
 
   {
     id: 6,
-    name: 'Food Security Assessment',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Food%20Security/4.fass.png?raw=true',
-    visible: false,
+    name: 'Psychosocial assistance',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/psychosocial-assistance.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
 
     {
     id: 7,
-    name: 'Food Training',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Food%20Security/5.ftraining.png?raw=true',
-    visible: false,
+    name: 'Orthopedic care',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/orthopedic-care.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
 
   {
     id: 8,
-    name: 'Farming Equipment Distribution',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Food%20Security/6.fequipment.png?raw=true',
-    visible: false,
+    name: 'Diagnostics',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/diagnostics.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
 
   {
     id: 9,
-    name: 'Seed Distribution',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Food%20Security/7.seed.png?raw=true',
-    visible: false,
+    name: 'Cash Support',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/cash-support.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Food Security',
+    layer_group: 'Medical Care and Nutrition',
   },
-
-
-  // WASH
 
 {
     id: 10,
-    name: 'Hygiene Kits Distributed',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/1.hkit.png?raw=true',
-    visible: false,
+    name: 'Food and Nutrition',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/food-and-nutrition.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
+
+    // Education and Training
 
   {
     id: 11,
-    name: 'New Bore Hole Drilled',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/2.nbore.png?raw=true',
-    visible: false,
+    name: 'Education',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/education.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
 
   {
     id: 12,
-    name: 'Water Tower With Solar Powered Pump',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/3.wtower.png?raw=true',
-    visible: false,
+    name: 'Training',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/training.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
+
+  //   Hospital Support and Shelter
 
   {
     id: 13,
-    name: 'New Latrines Built',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/4.nlat.png?raw=true',
-    visible: false,
+    name: 'Hospital support- Equipment',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/hospital-support-equipment.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
 
   {
     id: 14,
-    name: 'Rehabilitated Borehole',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/5.rbore.png?raw=true',
-    visible: false,
+    name: 'Hospital support- Supplies',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/hospital-support-supplies.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
 
   {
     id: 15,
-    name: 'Hygiene and Water Treatment Training',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/6.wtraining.png?raw=true',
-    visible: false,
+    name: 'Access to healthcare',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/access-to-healthcare.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
 
   {
     id: 16,
-    name: 'WASH Assessment',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/WASH/7.wass.png?raw=true',
-    visible: false,
+    name: 'Shelter & Winterization',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/shelter-and-winterization-alt-1.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
 
   {
     id: 17,
-    name: 'Emergency Water Trucking',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Movement/2.wtruck.png?raw=true',
-    visible: false,
+    name: 'Personnel Support',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/personnel-support.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'WASH',
+    layer_group: 'Education and Training',
   },
 
 
-  //   HEALTH
+
   {
     id: 18,
-    name: 'Household Nutritional Training',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Health/1.htraining.png?raw=true',
-    visible: false,
+    name: 'Hygiene and Sanitation',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/hygiene-and-sanitation.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Health',
+    layer_group: 'Hospital Support and Shelter',
   },
 
+
+// VASCO TEAM
   {
     id: 19,
-    name: 'Malaria Bednet Distribution',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Health/2.malaria.png?raw=true',
-    visible: false,
+    name: 'Emergency Team',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/emergency-team.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Health',
+    layer_group: 'Hospital Support and Shelter',
   },
+
+// Offices and Static Assets
 
   {
     id: 20,
-    name: 'Pre and Post Natal Nutritional Workshop',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Health/3.natal.png?raw=true',
-    visible: false,
+    name: 'Headquarters',
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/headquarters.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Health',
+    layer_group: 'Hospital Support and Shelter',
   },
 
   {
     id: 21,
-    name: "Women's Health Consultation",
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Health/4.womenh.png?raw=true',
-    visible: false,
+    name: "Country Office",
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/country-office.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Health',
+    layer_group: 'Hospital Support and Shelter',
   },
 
   {
     id: 22,
-    name: 'Mobile Boat Clinic',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Movement/1.boatc.png?raw=true',
-    visible: false,
-    inlegend: true,
-    tick_box: false,
-    base_layer: false,
-    layer_group: 'Health',
-  },
-
-
-
-
-
-// ASSETS
-
-{
-    id: 23,
-    name: 'Country Office',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Assets/1.countryo.png?raw=true',
-    visible: false,
-    inlegend: true,
-    tick_box: false,
-    base_layer: false,
-    layer_group: 'Assets',
-  },
-
-  {
-    id: 24,
     name: 'Field Office',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Assets/2.fieldo.png?raw=true',
-    visible: false,
+    img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/field-office.png?raw=true',
+    visible: true,
     inlegend: true,
     tick_box: false,
     base_layer: false,
-    layer_group: 'Assets',
+    layer_group: 'Hospital Support and Shelter',
   },
-
-  {
-    id: 25,
-    name: 'Local Partner Office',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Assets/3.partnero.png?raw=true',
-    visible: false,
-    inlegend: true,
-    tick_box: false,
-    base_layer: false,
-    layer_group: 'Assets',
-  },
-
-  {
-    id: 26,
-    name: 'Refrigerated Warehouse',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Assets/4.refware.png?raw=true',
-    visible: false,
-    inlegend: true,
-    tick_box: false,
-    base_layer: false,
-    layer_group: 'Assets',
-  },
-  {
-    id: 27,
-    name: 'Warehouse',
-    img: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Assets/5.ware.png?raw=true',
-    visible: false,
-    inlegend: true,
-    tick_box: false,
-    base_layer: false,
-    layer_group: 'Assets',
-  },
-
-// Movement
-
-
-
 
 ])
 
@@ -690,7 +632,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 1 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[3].img,
@@ -702,7 +644,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 2 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[4].img,
@@ -714,7 +656,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 3 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[5].img,
@@ -726,7 +668,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 4 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[6].img,
@@ -738,7 +680,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 5 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[7].img,
@@ -750,7 +692,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 6 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[8].img,
@@ -762,7 +704,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 7 ,
-    name: 'Food_Security',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[9].img,
@@ -774,7 +716,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 8 ,
-    name: 'WASH',
+    name: 'Medical Care and Nutrition',
     style: new Style({
             image: new Icon({
               src: layer_items.value[10].img,
@@ -786,7 +728,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 9 ,
-    name: 'WASH',
+    name: 'Education and Training',
     style: new Style({
             image: new Icon({
               src: layer_items.value[11].img,
@@ -798,7 +740,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 10 ,
-    name: 'WASH',
+    name: 'Education and Training',
     style: new Style({
             image: new Icon({
               src: layer_items.value[12].img,
@@ -810,7 +752,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 11 ,
-    name: 'WASH',
+    name: 'Hospital Support and Shelter',
     style: new Style({
             image: new Icon({
               src: layer_items.value[13].img,
@@ -822,7 +764,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 12 ,
-    name: 'WASH',
+    name: 'Hospital Support and Shelter',
     style: new Style({
             image: new Icon({
               src: layer_items.value[14].img,
@@ -834,7 +776,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 13 ,
-    name: 'WASH',
+    name: 'Hospital Support and Shelter',
     style: new Style({
             image: new Icon({
               src: layer_items.value[15].img,
@@ -846,7 +788,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 14 ,
-    name: 'WASH',
+    name: 'Hospital Support and Shelter',
     style: new Style({
             image: new Icon({
               src: layer_items.value[16].img,
@@ -858,7 +800,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 15 ,
-    name: 'WASH',
+    name: 'Hospital Support and Shelter',
     style: new Style({
             image: new Icon({
               src: layer_items.value[17].img,
@@ -870,7 +812,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 16 ,
-    name: 'Health',
+    name: 'Hospital Support and Shelter',
     style: new Style({
             image: new Icon({
               src: layer_items.value[18].img,
@@ -882,7 +824,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 17 ,
-    name: 'Health',
+    name: 'VASCO TEAM',
     style: new Style({
             image: new Icon({
               src: layer_items.value[19].img,
@@ -894,7 +836,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 18 ,
-    name: 'Health',
+    name: 'Offices and Static Assets',
     style: new Style({
             image: new Icon({
               src: layer_items.value[20].img,
@@ -906,7 +848,7 @@ const styles_items = ref([ // WHENADDLAYERS
 
   {
     id: 19 ,
-    name: 'Health',
+    name: 'Offices and Static Assets',
     style: new Style({
             image: new Icon({
               src: layer_items.value[21].img,
@@ -917,8 +859,8 @@ const styles_items = ref([ // WHENADDLAYERS
   },
 
   {
-    id: 19 ,
-    name: 'Health',
+    id: 20 ,
+    name: 'Offices and Static Assets',
     style: new Style({
             image: new Icon({
               src: layer_items.value[22].img,
@@ -927,68 +869,6 @@ const styles_items = ref([ // WHENADDLAYERS
             }),
           })
   },
-
-
-  {
-    id: 20 ,
-    name: 'Assets',
-    style: new Style({
-            image: new Icon({
-              src: layer_items.value[23].img,
-              scale: [icon_size.value, icon_size.value],
-              crossOrigin: undefined,
-            }),
-          })
-  },
-
-  {
-    id: 21 ,
-    name: 'Assets',
-    style: new Style({
-            image: new Icon({
-              src: layer_items.value[24].img,
-              scale: [icon_size.value, icon_size.value],
-              crossOrigin: undefined,
-            }),
-          })
-  },
-
-  {
-    id: 22 ,
-    name: 'Assets',
-    style: new Style({
-            image: new Icon({
-              src: layer_items.value[25].img,
-              scale: [icon_size.value, icon_size.value],
-              crossOrigin: undefined,
-            }),
-          })
-  },
-
-  {
-    id: 23 ,
-    name: 'Assets',
-    style: new Style({
-            image: new Icon({
-              src: layer_items.value[26].img,
-              scale: [icon_size.value, icon_size.value],
-              crossOrigin: undefined,
-            }),
-          })
-  },
-
-  {
-    id: 24 ,
-    name: 'Assets',
-    style: new Style({
-            image: new Icon({
-              src: layer_items.value[27].img,
-              scale: [icon_size.value, icon_size.value],
-              crossOrigin: undefined,
-            }),
-          })
-  },
-
 
   ]
 )
@@ -1014,93 +894,93 @@ const Baselayer = ref(
 
 // VECTOR LAYERS
 
-// FOOD SECURITY
+// Medical Care and Nutrition
 
-const Cash_Assistance = ref(new VectorLayer({
-      name: 'Cash Assistance',
-      group: 'Food Security',
+const Women_health = ref(new VectorLayer({
+      name: "Women's health",
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[3].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/cash.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Women Health.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[1].style,
       zIndex:2,
   }))
 
-const Fishing_Equipment_Distribution = ref(new VectorLayer({
-      name: 'Fishing Equipment Distribution',
-      group: 'Food Security',
+const Specialized_care = ref(new VectorLayer({
+      name: 'Specialized care',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[4].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/fish.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Specialized Care.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[2].style,
       zIndex:2,
   }))
 
-const Food_Distribution = ref(new VectorLayer({
-      name: 'Food Distribution',
-      group: 'Food Security',
+const Dentistry = ref(new VectorLayer({
+      name: 'Dentistry',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[5].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/food.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Dentistry.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[3].style,
       zIndex:2,
   }))
 
-  const Food_Security_Assessment = ref(new VectorLayer({
-      name: 'Food Security Assessment',
-      group: 'Food Security',
+  const Psychosocial_assistance = ref(new VectorLayer({
+      name: 'Psychosocial assistance',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[6].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/fass.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Psychosocial Assistance.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[4].style,
       zIndex:2,
   }))
 
-  const Food_Training = ref(new VectorLayer({
-      name: 'Food Training',
-      group: 'Food Security',
+  const Orthopedic_care = ref(new VectorLayer({
+      name: 'Orthopedic care',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[7].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/ftraining.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Orthopedic Care.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[5].style,
       zIndex:2,
   }))
 
-  const Farming_Equipment_Distribution = ref(new VectorLayer({
-      name: 'Farming Equipment Distribution',
-      group: 'Food Security',
+  const Diagnostics = ref(new VectorLayer({
+      name: 'Diagnostics',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[8].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/fequipment.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Diagnostics.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[6].style,
       zIndex:2,
   }))
 
-  const Seed_Distribution = ref(new VectorLayer({
-      name: 'Seed Distribution',
-      group: 'Food Security',
+  const Cash_Support = ref(new VectorLayer({
+      name: 'Cash Support',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[9].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/Food/seed.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Cash Support.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[7].style,
@@ -1109,246 +989,182 @@ const Food_Distribution = ref(new VectorLayer({
 
 
 
-  // WASH
-
-  const Hygiene_Kits_Distributed = ref(new VectorLayer({
-      name: 'Hygiene Kits Distributed',
-      group: 'WASH',
+  const Food_and_Nutrition = ref(new VectorLayer({
+      name: 'Food and Nutrition',
+      group: 'Medical Care and Nutrition',
       visible: layer_items.value[10].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/hkit.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Food and Nutrition.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[8].style,
       zIndex:2,
   }))
 
-  const New_Bore_Hole_Drilled = ref(new VectorLayer({
-      name: 'New Bore Hole Drilled',
-      group: 'WASH',
+// Education and Training
+
+  const Education = ref(new VectorLayer({
+      name: 'Education',
+      group: 'Education and Training',
       visible: layer_items.value[11].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/nbore.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Education.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[9].style,
       zIndex:2,
   }))
 
-  const Water_Tower_With_Solar_Powered_Pump = ref(new VectorLayer({
-      name: 'Water Tower With Solar Powered Pump',
-      group: 'WASH',
+  const Training = ref(new VectorLayer({
+      name: 'Training',
+      group: 'Education and Training',
       visible: layer_items.value[12].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/wtower.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Training.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[10].style,
       zIndex:2,
   }))
 
-  const New_Latrines_Built = ref(new VectorLayer({
-      name: 'New Latrines Built',
-      group: 'WASH',
-      visible: layer_items.value[13].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/nlat.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[11].style,
-      zIndex:2,
-  }))
+  // Hospital Support and Shelter
 
-  const Rehabilitated_Borehole = ref(new VectorLayer({
-      name: 'Rehabilitated Borehole',
-      group: 'WASH',
-      visible: layer_items.value[14].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/rbore.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[12].style,
-      zIndex:2,
-  }))
-
-  const Hygiene_and_Water_Treatment_Training = ref(new VectorLayer({
-      name: 'Hygiene and Water Treatment Training',
-      group: 'WASH',
-      visible: layer_items.value[15].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/wtraining.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[13].style,
-      zIndex:2,
-  }))
-
-  const WASH_Assessment = ref(new VectorLayer({
-      name: 'WASH Assessment',
-      group: 'WASH',
-      visible: layer_items.value[16].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/wass.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[14].style,
-      zIndex:2,
-  }))
-
-  //const Emergency_Water_Trucking = ref(new VectorLayer({
-  //    name: 'Emergency Water Trucking',
-  //    group: 'WASH',
-  //    visible: layer_items.value[17].visible,
-  //    source: new VectorSource({
-  //      format: new GeoJSON(),
-  //      url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/WASH/wtruck.json.geojson',
-  //      crossOrigin: undefined,
-  //    }),
-  //    style: styles_items.value[15].style,
-  //    zIndex:2,
-  //}))
-
-
-
-  // HEALTH
-
-    const Household_Nutritional_Training = ref(new VectorLayer({
-      name: 'Household Nutritional Training',
-      group: 'Health',
+    const Hospital_support_Equipment = ref(new VectorLayer({
+      name: 'Hospital Support- Equipment',
+      group: 'Hospital Support and Shelter',
       visible: layer_items.value[18].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/health/htraining.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support- Equipment.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[16].style,
       zIndex:2,
   }))
 
-    const Malaria_Bednet_Distribution = ref(new VectorLayer({
-      name: 'Malaria Bednet Distribution',
-      group: 'Health',
+    const Hospital_support_Supplies = ref(new VectorLayer({
+      name: 'Hospital Support- Supplies',
+      group: 'Hospital Support and Shelter',
       visible: layer_items.value[19].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/health/malaria.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support- Supplies.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[17].style,
       zIndex:2,
   }))
 
-    const Pre_and_Post_Natal_Nutritional_Workshop = ref(new VectorLayer({
-      name: 'Pre and Post Natal Nutritional Workshop',
-      group: 'Health',
-      visible: layer_items.value[20].visible,
+    const Access_to_healthcare = ref(new VectorLayer({
+      name: 'Access to healthcare',
+      group: 'Hospital Support and Shelter',
+      visible: layer_items.value[19].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/health/natal.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Access to Healthcare.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[18].style,
       zIndex:2,
   }))
 
-   const Women_Health_Consultation = ref(new VectorLayer({
-      name: "Women's Health Consultation",
-      group: 'Health',
-      visible: layer_items.value[21].visible,
+   const Shelter_and_Winterization = ref(new VectorLayer({
+      name: "Shelter and Winterization",
+      group: 'Hospital Support and Shelter',
+      visible: layer_items.value[19].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/health/womenh.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Shelter and Winterization.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[19].style,
       zIndex:2,
   }))
 
-  //const Boat_Clinic = ref(new VectorLayer({
-  //    name: "Women's Health Consultation",
-  //    group: 'Health',
-  //    visible: layer_items.value[22].visible,
-  //    source: new VectorSource({
-  //      format: new GeoJSON(),
-  //      url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/health/womenh.json.geojson',
-  //      crossOrigin: undefined,
-  //    }),
-  //    style: styles_items.value[20].style,
-  //}))
-
-
-
-  // ASSETS
-
-    const Country_Office = ref(new VectorLayer({
-      name: 'Country Office',
-      group: 'Assets',
-      visible: layer_items.value[23].visible,
+    const Personnel_Support = ref(new VectorLayer({
+      name: 'Personnel Support',
+      group: 'Offices and Static Assets',
+      visible: layer_items.value[19].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/assets/countryo.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Personnel Support.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[21].style,
+      style: styles_items.value[19].style,
+      zIndex:2,
+  }))
+
+  const Hygiene_and_Sanitation = ref(new VectorLayer({
+      name: 'Hygiene and Sanitation',
+      group: 'Offices and Static Assets',
+      visible: layer_items.value[19].visible,
+      source: new VectorSource({
+        format: new GeoJSON(),
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hygiene and Sanitation.json.geojson',
+        crossOrigin: undefined,
+      }),
+      style: styles_items.value[19].style,
+      zIndex:2,
+  }))
+
+
+
+// VASCO TEAM
+
+  const Emergency_Team = ref(new VectorLayer({
+      name: 'Emergency Team',
+      group: 'Offices and Static Assets',
+      visible: layer_items.value[19].visible,
+      source: new VectorSource({
+        format: new GeoJSON(),
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Emergency Team.json.geojson',
+        crossOrigin: undefined,
+      }),
+      style: styles_items.value[19].style,
+      zIndex:2,
+  }))
+
+  // Offices and Static Assets
+
+  const Headquarters = ref(new VectorLayer({
+      name: 'Headquarters',
+      group: 'Offices and Static Assets',
+      visible: layer_items.value[19].visible,
+      source: new VectorSource({
+        format: new GeoJSON(),
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Headquarters.json.geojson',
+        crossOrigin: undefined,
+      }),
+      style: styles_items.value[19].style,
+      zIndex:2,
+  }))
+
+  const Country_Office = ref(new VectorLayer({
+      name: 'Country Office',
+      group: 'Offices and Static Assets',
+      visible: layer_items.value[19].visible,
+      source: new VectorSource({
+        format: new GeoJSON(),
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Country Office.json.geojson',
+        crossOrigin: undefined,
+      }),
+      style: styles_items.value[19].style,
       zIndex:2,
   }))
 
   const Field_Office = ref(new VectorLayer({
       name: 'Field Office',
-      group: 'Assets',
-      visible: layer_items.value[24].visible,
+      group: 'Offices and Static Assets',
+      visible: layer_items.value[19].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/assets/fieldo.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Field Office.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[22].style,
-      zIndex:2,
-  }))
-
-  const Local_Partner_Office = ref(new VectorLayer({
-      name: 'Local Partner Office',
-      group: 'Assets',
-      visible: layer_items.value[25].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/assets/partnero.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[23].style,
-      zIndex:2,
-  }))
-
-  const Refrigerated_Warehouse = ref(new VectorLayer({
-      name: 'Refrigerated Warehouse',
-      group: 'Assets',
-      visible: layer_items.value[26].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/assets/refware.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[24].style,
-      zIndex:2,
-  }))
-
-  const Warehouse = ref(new VectorLayer({
-      name: 'Warehouse',
-      group: 'Assets',
-      visible: layer_items.value[27].visible,
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/Applied-Geotechnological-Solutions/Web_map_demo_data/main/assets/ware.json.geojson',
-        crossOrigin: undefined,
-      }),
-      style: styles_items.value[25].style,
+      style: styles_items.value[19].style,
       zIndex:2,
   }))
 
@@ -1358,41 +1174,36 @@ const map_layers = ref([                 // WHENADDLAYER
         // BASE
       Baselayer.value,
 
-      // FOOD SECURITY
+      // Medical Care and Nutrition
 
-      Cash_Assistance.value,
-      Fishing_Equipment_Distribution.value,
-      Food_Distribution.value,
-      Food_Security_Assessment.value,
-      Food_Training.value,
-      Farming_Equipment_Distribution.value,
-      Seed_Distribution.value,
+      Women_health.value,
+      Specialized_care.value,
+      Dentistry.value,
+      Psychosocial_assistance.value,
+      Orthopedic_care.value,
+      Diagnostics.value,
+      Cash_Support.value,
+      Food_and_Nutrition.value,
 
-      // WASH
-      Hygiene_Kits_Distributed.value,
-      New_Bore_Hole_Drilled.value,
-      Water_Tower_With_Solar_Powered_Pump.value,
-      New_Latrines_Built.value,
-      Rehabilitated_Borehole.value,
-      Hygiene_and_Water_Treatment_Training.value,
-      WASH_Assessment.value,
-      //Emergency_Water_Trucking.value,
+      // Education and Training
+      Education.value,
+      Training.value,
 
-      // HEALTH
-      Household_Nutritional_Training.value,
-      Malaria_Bednet_Distribution.value,
-      Pre_and_Post_Natal_Nutritional_Workshop.value,
-      Women_Health_Consultation.value,
-      //Boat_Clinic.value,
+      // Hospital Support and Shelter
+      Hospital_support_Equipment.value,
+      Hospital_support_Supplies.value,
+      Access_to_healthcare.value,
+      Shelter_and_Winterization.value,
+      Personnel_Support.value,
+      Hygiene_and_Sanitation.value,
 
+      // VASCO TEAM
+      Emergency_Team.value,
 
-      // ASSETS
+      // Offices and Static Assets
+      Headquarters.value,
       Country_Office.value,
       Field_Office.value,
-      Local_Partner_Office.value,
-      Refrigerated_Warehouse.value,
-      Warehouse.value,
-
 
 
       //Dark_Basemap.value,
@@ -1471,8 +1282,8 @@ function initMap() {
     controls: defaultControls().extend([overviewMapControl, mousePositionControl, zoomslider, scaleLine]),
     layers: map_layers.value,
       view: new View({ projection: 'EPSG:3857', // Projection coordinate system
-      center: [-1815315.442215883, 1404799.1294523671], // The center of the map
-      zoom: 11.5 // Map zoom level （ The default level when opening a page ）
+      center: [2515315.442215883, 4004799.1294523671], // The center of the map
+      zoom: 3 // Map zoom level （ The default level when opening a page ）
       }),
       overlays: [overlay.value, overlay2.value, overlay3.value, overlay4.value] // WHENNEWOVERLAY
        // Bind a cover
@@ -1579,7 +1390,7 @@ function initMap() {
 //       }),
 //       style: new Style({
 //         image: new Icon({
-//         src: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Movement/1.boatc.png?raw=true',
+//         src: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/1.boatc.png?raw=true',
 //         crossOrigin: undefined,
 //         scale: [0.1, 0.1],
 //             }),
@@ -1609,7 +1420,7 @@ function initMap() {
 //       }),
 //       style: new Style({
 //         image: new Icon({
-//         src: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Movement/2.wtruck.png?raw=true',
+//         src: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/2.wtruck.png?raw=true',
 //         crossOrigin: undefined,
 //         scale: [0.1, 0.1],
 //             }),
@@ -1642,7 +1453,7 @@ function initMap() {
 
 //       var Boat_Clinic_style = new Style({
 //       image: new Icon({
-//       src: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Movement/1.boatc.png?raw=true',
+//       src: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/1.boatc.png?raw=true',
 //       crossOrigin: undefined,
 //       scale: [icon_size.value, icon_size.value],
 //             }),
@@ -1650,7 +1461,7 @@ function initMap() {
 
 //       var Water_T_style = new Style({
 //       image: new Icon({
-//       src: 'https://github.com//Applied-Geotechnological-Solutions/Web_map_demo_data/blob/main/icons/Movement/2.wtruck.png?raw=true',
+//       src: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/2.wtruck.png?raw=true',
 //       crossOrigin: undefined,
 //       scale: [icon_size.value, icon_size.value],
 //             }),
