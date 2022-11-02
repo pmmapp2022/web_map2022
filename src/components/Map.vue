@@ -159,18 +159,29 @@ Ask about the map
 
               <span class="popup-close" @click="closePopup1"> x </span>
 
+              <div class="overlay-text-info" v-for="item in photos_in_box" :key="item">
+
+                <div v-if="item != 'Not available'">
+
+                  <img v-bind:src="item" class="photo_in_popup">
+
+                </div>
+
+
+                </div>
+
               <div class="header-orange-attributes" > Details: </div>
               <hr>
 
                 <div class="overlay-text-info" v-for="item in popup_content_info" :key="item">
+
+
 
                   <div v-html="item"> </div>
 
                 </div>
                 <hr style="height: 0.1px; background:#fff;">
 
-
-              <div class="overlay-text-feed" v-html="popup_content_feed"> </div>
 
           </div>
 
@@ -285,8 +296,7 @@ const overlay4 = ref(null)
 const currentCoordinate = ref('') // Pop up information
 
 const popup_content_info = ref('')
-
-const popup_content_feed = ref('')
+const photos_in_box = ref('')
 
 
 const keys_list = ref([])
@@ -340,7 +350,7 @@ const layer_items = ref([
     name: 'Open_Street_Map',
     visible: false,
     inlegend: false,
-    tick_box: false,
+    tick_box: true,
     base_layer: true,
     src: new OSM(),
     layer_group: 'base layer',
@@ -351,7 +361,7 @@ const layer_items = ref([
     name: 'Google_Satellite',
     visible: false,
     inlegend: false,
-    tick_box: false,
+    tick_box: true,
     base_layer: true,
     src: new XYZ({
           url: 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}'
@@ -364,7 +374,7 @@ const layer_items = ref([
     name: 'Dark_Basemap',
     visible: false,
     inlegend: false,
-    tick_box: false,
+    tick_box: true,
     base_layer: true,
     src: new XYZ({
       url: "http://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ",
@@ -387,7 +397,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/women-health.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Medical Care and Nutrition',
   },
@@ -409,7 +419,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/dentistry.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Medical Care and Nutrition',
   },
@@ -420,7 +430,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/psychosocial-assistance.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Medical Care and Nutrition',
   },
@@ -431,7 +441,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/orthopedic-care.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Medical Care and Nutrition',
   },
@@ -442,7 +452,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/diagnostics.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Medical Care and Nutrition',
   },
@@ -453,7 +463,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/cash-support.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Medical Care and Nutrition',
   },
@@ -464,7 +474,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/food-and-nutrition.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Education and Training',
   },
@@ -477,7 +487,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/education.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Education and Training',
   },
@@ -488,7 +498,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/training.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Education and Training',
   },
@@ -501,9 +511,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/hospital-support-equipment.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Education and Training',
+    layer_group: 'Hospital Support and Shelter',
   },
 
   {
@@ -512,9 +522,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/hospital-support-supplies.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Education and Training',
+    layer_group: 'Hospital Support and Shelter',
   },
 
   {
@@ -523,9 +533,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/access-to-healthcare.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Education and Training',
+    layer_group: 'Hospital Support and Shelter',
   },
 
   {
@@ -534,9 +544,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/shelter-and-winterization-alt-1.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Education and Training',
+    layer_group: 'Hospital Support and Shelter',
   },
 
   {
@@ -545,9 +555,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/personnel-support.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Education and Training',
+    layer_group: 'Hospital Support and Shelter',
   },
 
 
@@ -558,7 +568,7 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/hygiene-and-sanitation.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
     layer_group: 'Hospital Support and Shelter',
   },
@@ -571,9 +581,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/emergency-team.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Hospital Support and Shelter',
+    layer_group: 'VASCO TEAM',
   },
 
 // Offices and Static Assets
@@ -584,9 +594,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/headquarters.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Hospital Support and Shelter',
+    layer_group: 'Offices and Static Assets',
   },
 
   {
@@ -595,9 +605,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/country-office.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Hospital Support and Shelter',
+    layer_group: 'Offices and Static Assets',
   },
 
   {
@@ -606,9 +616,9 @@ const layer_items = ref([
     img: 'https://github.com//pmmapp2022/web_map2022_data/blob/main/field-office.png?raw=true',
     visible: true,
     inlegend: true,
-    tick_box: false,
+    tick_box: true,
     base_layer: false,
-    layer_group: 'Hospital Support and Shelter',
+    layer_group: 'Offices and Static Assets',
   },
 
 ])
@@ -1035,78 +1045,78 @@ const Dentistry = ref(new VectorLayer({
     const Hospital_support_Equipment = ref(new VectorLayer({
       name: 'Hospital Support- Equipment',
       group: 'Hospital Support and Shelter',
-      visible: layer_items.value[18].visible,
+      visible: layer_items.value[13].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support- Equipment.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[16].style,
+      style: styles_items.value[11].style,
       zIndex:2,
   }))
 
     const Hospital_support_Supplies = ref(new VectorLayer({
       name: 'Hospital Support- Supplies',
       group: 'Hospital Support and Shelter',
-      visible: layer_items.value[19].visible,
+      visible: layer_items.value[14].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support- Supplies.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[17].style,
+      style: styles_items.value[12].style,
       zIndex:2,
   }))
 
     const Access_to_healthcare = ref(new VectorLayer({
       name: 'Access to healthcare',
       group: 'Hospital Support and Shelter',
-      visible: layer_items.value[19].visible,
+      visible: layer_items.value[15].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Access to Healthcare.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[18].style,
+      style: styles_items.value[13].style,
       zIndex:2,
   }))
 
    const Shelter_and_Winterization = ref(new VectorLayer({
       name: "Shelter and Winterization",
       group: 'Hospital Support and Shelter',
-      visible: layer_items.value[19].visible,
+      visible: layer_items.value[16].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Shelter and Winterization.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[19].style,
+      style: styles_items.value[14].style,
       zIndex:2,
   }))
 
     const Personnel_Support = ref(new VectorLayer({
       name: 'Personnel Support',
-      group: 'Offices and Static Assets',
-      visible: layer_items.value[19].visible,
+      group: 'Hospital Support and Shelter',
+      visible: layer_items.value[17].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Personnel Support.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[19].style,
+      style: styles_items.value[15].style,
       zIndex:2,
   }))
 
   const Hygiene_and_Sanitation = ref(new VectorLayer({
       name: 'Hygiene and Sanitation',
-      group: 'Offices and Static Assets',
-      visible: layer_items.value[19].visible,
+      group: 'Hospital Support and Shelter',
+      visible: layer_items.value[18].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hygiene and Sanitation.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[19].style,
+      style: styles_items.value[16].style,
       zIndex:2,
   }))
 
@@ -1116,14 +1126,14 @@ const Dentistry = ref(new VectorLayer({
 
   const Emergency_Team = ref(new VectorLayer({
       name: 'Emergency Team',
-      group: 'Offices and Static Assets',
+      group: 'VASCO TEAM',
       visible: layer_items.value[19].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Emergency Team.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[19].style,
+      style: styles_items.value[17].style,
       zIndex:2,
   }))
 
@@ -1132,20 +1142,20 @@ const Dentistry = ref(new VectorLayer({
   const Headquarters = ref(new VectorLayer({
       name: 'Headquarters',
       group: 'Offices and Static Assets',
-      visible: layer_items.value[19].visible,
+      visible: layer_items.value[20].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Headquarters.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[19].style,
+      style: styles_items.value[18].style,
       zIndex:2,
   }))
 
   const Country_Office = ref(new VectorLayer({
       name: 'Country Office',
       group: 'Offices and Static Assets',
-      visible: layer_items.value[19].visible,
+      visible: layer_items.value[21].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Country Office.json.geojson',
@@ -1158,13 +1168,13 @@ const Dentistry = ref(new VectorLayer({
   const Field_Office = ref(new VectorLayer({
       name: 'Field Office',
       group: 'Offices and Static Assets',
-      visible: layer_items.value[19].visible,
+      visible: layer_items.value[22].visible,
       source: new VectorSource({
         format: new GeoJSON(),
         url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Field Office.json.geojson',
         crossOrigin: undefined,
       }),
-      style: styles_items.value[19].style,
+      style: styles_items.value[20].style,
       zIndex:2,
   }))
 
@@ -1751,6 +1761,8 @@ function mapClick() {
                 // Create lists of pupup content strings .replace(/£/g, ".\n\n<hr style='margin-left: 45%; margin-right: 45%; border: 1; '> \n")
 
                 popup_content_info.value = []
+
+                photos_in_box.value = []
                 //popup_content_feed.value = '<h3 class="header-orange">' + 'Support given:\n'.bold() + '</h3>' + selected.value.get('attributes')
 
                 for (var k1 in keys_list2.value) { // keys list filter keys and push to popup content
@@ -1759,10 +1771,17 @@ function mapClick() {
 
                     var k2 = keys_list2.value[k1]
 
-                    //console.log('key', k2)
 
-                    popup_content_info.value.push(k2.bold() + ':\n ' + selected.value.get(k2))  // push both key and value to final content list
 
+                    if (k2 != 'Photo') {
+                      popup_content_info.value.push(k2.bold() + ':\n ' + selected.value.get(k2))  // push both key and value to final content list
+                    }
+
+            // Add photo link to photos_in_box list
+
+                    if (k2 == 'Photo') {
+                      photos_in_box.value.push(selected.value.get(k2))
+                    }
 
                 }
 
@@ -1775,6 +1794,7 @@ function mapClick() {
 
           else {   // If there is no feature in pixel
             popup_content_info.value = null;
+            photos_in_box.value = null;
             overlay.value.setPosition(null)
           }
 
@@ -1844,7 +1864,7 @@ onMounted(() => {
   color: white;
   box-shadow: 0 5px 10px rgb(2 2 2 / 40%);
 
-  padding: 2.8vh;
+  padding: 3.8vh;
   overflow:auto;
   transition: all 0.3s ease-in-out;
 
@@ -1854,6 +1874,10 @@ onMounted(() => {
   .popup:hover {
   background-color: rgb(23, 9, 46, 0.9);;
   height: 30vh;
+}
+
+.photo_in_popup {
+  width: 15vw;
 }
 
 .popup2 {
@@ -1920,7 +1944,7 @@ font-weight: bold;
 
 .overlay-text-feed {
 color: white;
-font-size: clamp(5px, 0.8vw, 11px);
+font-size: clamp(6px, 0.8vw, 11px);
 font-family: Silka, sans-serif;
 white-space: pre-wrap;
 line-height: 1.5;
@@ -1963,19 +1987,20 @@ stroke-width: 3px;
 .left {
     grid-area: left;
     width: 12vw;
-    height: 95vh;
+    height: 90vh;
     background: rgb(23, 9, 46);
     border-radius: 0.5vh;
     transition: all 200ms ease-in-out;
     z-index: 9;
     position:fixed;
     min-width: 70px;
+    clip-path: inset(0 0 0 0);
 }
 
 .left:hover {
   width: 18vw;
-  overflow: hidden;
   box-shadow: 1vw 1vw 1vw 1vw rgb(2 2 2 / 20%);
+  overflow-x: hidden;
 }
 
 
@@ -1983,7 +2008,7 @@ stroke-width: 3px;
 .right {
     grid-area: right;
     width: 87vw;
-    height: 95vh;
+    height: 90vh;
     border-radius: 1.5vh;
     left:12.5vw;
     position:fixed;
@@ -2145,7 +2170,7 @@ top: 9px;
 
 .text-bold-white {
 color: rgb(255, 255, 255);
-font-size: clamp(6px, 0.7vw, 12px);
+font-size: clamp(7px, 0.7vw, 12px);
 font-weight: bold;
 padding-bottom: 5px;
 bottom: 5px;
@@ -2302,7 +2327,7 @@ transition: all 200ms ease-in-out;
         }
         .left:hover {
           width: 28vw;
-          overflow: hidden;
+          overflow-x: hidden;
           box-shadow: 1vw 1vw 1vw rgb(2 2 2 / 20%);
         }
 
