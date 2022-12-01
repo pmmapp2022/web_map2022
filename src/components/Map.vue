@@ -1048,7 +1048,7 @@ const Dentistry = ref(new VectorLayer({
       visible: layer_items.value[13].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support- Equipment.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support - Equipment.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[11].style,
@@ -1061,7 +1061,7 @@ const Dentistry = ref(new VectorLayer({
       visible: layer_items.value[14].visible,
       source: new VectorSource({
         format: new GeoJSON(),
-        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support- Supplies.json.geojson',
+        url: 'https://raw.githubusercontent.com/pmmapp2022/web_map_points/master/geojson_files/Hospital Support - Supplies.json.geojson',
         crossOrigin: undefined,
       }),
       style: styles_items.value[12].style,
