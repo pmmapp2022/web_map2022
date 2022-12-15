@@ -7,14 +7,14 @@
 <a href="https://pmm.org.pl/">
 <img src="https://s3.eu-west-2.amazonaws.com/pleo-polska-misja-medyczna/Logo/home_logo_pmm_wersja-podstawowa_granat-i-czerwony_pl_v2.svg" class="logo">
 </a>
-<div class="home-header" style="order: 2;"> ACTIVITIES MAP </div>
+<div class="home-header" style="order: 2;"> WHERE WE WORK </div>
 
 
 
 
 
 
-<a class="button" style="order: 3;" href="mailto: syver.petersen@agtsolutions.org?subject=Questions about AGT web map">
+<a class="button" style="order: 3;" href="mailto: administrator@pmm.org.pl?subject=Questions about PMM web map">
 Ask about the map
 </a>
 
