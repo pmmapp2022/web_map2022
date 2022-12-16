@@ -175,12 +175,11 @@ Ask about the map
 
                 <div class="overlay-text-info" v-for="item in popup_content_info" :key="item">
 
-
-
                   <div v-html="item"> </div>
 
                 </div>
-                <hr style="height: 0.1px; background:#fff;">
+
+              <hr style="height: 0.1px; background:#fff;">
 
 
           </div>
@@ -1773,8 +1772,12 @@ function mapClick() {
 
 
 
-                    if (k2 != 'Photo') {
+                    if (k2 != 'Photo' && k2 != 'Additional Materials') {
                       popup_content_info.value.push(k2.bold() + ':\n ' + selected.value.get(k2))  // push both key and value to final content list
+                    }
+
+                    if (k2 == 'Additional Materials') {
+                      popup_content_info.value.push(k2.bold() + ':\n ' + '<a href="' + selected.value.get(k2) + '">' + selected.value.get(k2) + '</a>')  // push both key and value to final content list
                     }
 
             // Add photo link to photos_in_box list
